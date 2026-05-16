@@ -1,0 +1,122 @@
+/* ============================================ */
+/*  base.css — reset, theme variables, cursor   */
+/* ============================================ */
+
+/* ----- Universal reset + disable text selection ----- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+::selection      { background: transparent; color: inherit; }
+::-moz-selection { background: transparent; color: inherit; }
+
+/* ============================================ */
+/*  Theme — Day mode (default)                  */
+/* ============================================ */
+:root {
+  --bg:           #FFF6E5;
+  --bg-soft:      #FFE9B8;
+  --fg:           #3D2817;
+  --fg-soft:      #6B4423;
+  --accent:       #D89425;
+  --accent-glow:  #F5C24A;
+  --brown:        #6B4423;
+  --pink:         #F4C9C0;
+  --card:         #FFFFFF;
+  --card-border:  rgba(107, 68, 35, 0.12);
+  --shadow:       0 8px 24px rgba(107, 68, 35, 0.08);
+  --shadow-hover: 0 16px 40px rgba(107, 68, 35, 0.18);
+  --lamp-glow:    rgba(245, 194, 74, 0);
+}
+
+/* ============================================ */
+/*  Theme — Night mode (cozy café lamplight)    */
+/* ============================================ */
+[data-theme="night"] {
+  --bg:           #14100B;
+  --bg-soft:      #1E1812;
+  --fg:           #FFEDD0;
+  --fg-soft:      #C9AE85;
+  --accent:       #FFCC4E;
+  --accent-glow:  #FFE38E;
+  --brown:        #DEA15A;
+  --pink:         #E89A8E;
+  --card:         #221912;
+  --card-border:  rgba(255, 204, 78, 0.18);
+  --shadow:       0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 20px 50px rgba(255, 204, 78, 0.16);
+  --lamp-glow:    rgba(255, 213, 130, 0.22);
+}
+
+/* Body atmosphere at night: 2 warm lamps + soft vignette */
+[data-theme="night"] body {
+  background-image:
+    radial-gradient(ellipse 65% 55% at 85% 0%,  var(--lamp-glow) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 55% at 5% 100%, rgba(220, 130, 80, 0.09) 0%, transparent 60%),
+    radial-gradient(circle  at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.4) 100%);
+  background-attachment: fixed;
+}
+
+/* ============================================ */
+/*  HTML & body — fonts, scroll, base bg        */
+/* ============================================ */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', 'Cairo', system-ui, sans-serif;
+  line-height: 1.65;
+  min-height: 100vh;
+  transition: background 0.6s ease, color 0.6s ease;
+  background-image: radial-gradient(circle at 85% 8%, var(--lamp-glow) 0%, transparent 45%);
+  overflow-x: hidden;
+}
+
+html[lang="ar"] body {
+  font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+}
+
+/* ============================================ */
+/*  Typography                                  */
+/* ============================================ */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+}
+
+/* ============================================ */
+/*  Bilingual visibility                        */
+/* ============================================ */
+.en, .ar { display: none; }
+html[lang="en"] .en { display: inline; }
+html[lang="ar"] .ar { display: inline; }
+
+/* ============================================ */
+/*  Custom cursor — cat paw 🐾                  */
+/* ============================================ */
+/* Default: soft pink paw */
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 32 32'><ellipse cx='16' cy='22' rx='8.5' ry='7' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.4'/><ellipse cx='7' cy='12' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='13' cy='7' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='19' cy='7' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='25' cy='12' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/></svg>") 15 16, auto;
+}
+
+/* Interactive elements — paw with a honey heart */
+a, button, [role='button'], .plate, .teacup, .dessert-card,
+.cat-companion, .controls button, .brand, .scroll-progress {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><ellipse cx='16' cy='22' rx='8.5' ry='7' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.4'/><ellipse cx='7' cy='12' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='13' cy='7' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='19' cy='7' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><ellipse cx='25' cy='12' rx='3' ry='4' fill='%23F4A4AA' stroke='%236B4423' stroke-width='1.2'/><path d='M16 26 Q9 21 12 17 Q15 15 16 18 Q17 15 20 17 Q23 21 16 26 Z' fill='%23F5C24A' stroke='%236B4423' stroke-width='1' stroke-linejoin='round'/></svg>") 16 16, pointer;
+}

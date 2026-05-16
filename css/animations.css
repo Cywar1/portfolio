@@ -1,0 +1,147 @@
+/* ============================================ */
+/*  animations.css — reveal, hero, hover, scroll */
+/* ============================================ */
+
+/* ----- Hero entrance (staggered fade-up) ----- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero h1             { animation: fadeInUp 0.9s ease 0.10s both; }
+.hero .role          { animation: fadeInUp 0.8s ease 0.30s both; }
+.hero .mug-container { animation: fadeInUp 0.9s ease 0.45s both; }
+.hero .tagline       { animation: fadeInUp 0.8s ease 0.70s both; }
+
+/* ----- The mug floats gently ----- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.mug-svg {
+  animation: float 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ----- The heart on the mug beats ----- */
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.18); }
+}
+.heart-path {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: heartBeat 2s ease-in-out infinite;
+}
+[data-theme="night"] .heart-path {
+  filter: drop-shadow(0 0 6px rgba(255, 204, 78, 0.45));
+}
+
+/* ----- Scroll reveal ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ----- Staggered children inside a revealed container ----- */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.stagger.visible > * { opacity: 1; transform: translateY(0); }
+.stagger.visible > *:nth-child(1) { transition-delay: 0.04s; }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.11s; }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.18s; }
+.stagger.visible > *:nth-child(4) { transition-delay: 0.25s; }
+.stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.stagger.visible > *:nth-child(6) { transition-delay: 0.39s; }
+.stagger.visible > *:nth-child(7) { transition-delay: 0.46s; }
+.stagger.visible > *:nth-child(8) { transition-delay: 0.53s; }
+
+/* ----- Section sub-title underline draws itself in ----- */
+.section-sub {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.section-sub::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 55px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1) 0.25s;
+}
+section.visible .section-sub::after { transform: translateX(-50%) scaleX(1); }
+
+/* ----- Honey scroll progress bar at the top ----- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transition: background 0.4s ease;
+}
+
+/* ----- Lamp toggle glows in night mode ----- */
+@keyframes lampGlow {
+  0%, 100% { box-shadow: 0 0 14px var(--accent-glow); }
+  50%      { box-shadow: 0 0 24px var(--accent-glow); }
+}
+[data-theme="night"] #theme-toggle {
+  animation: lampGlow 3s ease-in-out infinite;
+}
+
+/* ----- Brand mug nods when hovered ----- */
+.brand .icon {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.brand:hover .icon { transform: rotate(-15deg); }
+
+/* ----- Dessert emoji wiggle ----- */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  20%      { transform: rotate(-14deg); }
+  40%      { transform: rotate(12deg); }
+  60%      { transform: rotate(-8deg); }
+  80%      { transform: rotate(6deg); }
+}
+
+/* ----- Footer heart twinkles ----- */
+@keyframes twinkle {
+  0%, 100% { transform: scale(1)    rotate(0); }
+  50%      { transform: scale(1.25) rotate(8deg); }
+}
+footer .heart {
+  display: inline-block;
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+  .section-sub::after { transform: translateX(-50%) scaleX(1) !important; }
+}

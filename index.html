@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sewar · A Portfolio in a Warm Café</title>
+  <meta name="description" content="A portfolio for Sewar — Computer Science Engineer, University of Jordan. A small warm gift, brewed with care.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600;700&family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets (load order matters: base → layout → components → animations → cat → effects) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cat.css">
+  <link rel="stylesheet" href="css/effects.css">
+</head>
+
+<body>
+
+  <!-- Honey scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===== Top bar ===== -->
+  <header class="top-bar">
+    <div class="brand">
+      <span class="icon">☕</span>
+      <span class="en">Sewar</span>
+      <span class="ar">سوار</span>
+    </div>
+    <div class="controls">
+      <button id="lang-toggle" type="button">عربي</button>
+      <button id="theme-toggle" type="button" aria-label="toggle theme">🪔</button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>
+      <span class="en">Hi, I'm Sewar</span>
+      <span class="ar">أهلًا، أنا سوار</span>
+    </h1>
+
+    <p class="role">
+      <span class="en">Computer Science Engineer · University of Jordan</span>
+      <span class="ar">مهندسة علوم حاسوب · الجامعة الأردنية</span>
+    </p>
+
+    <div class="mug-container" aria-hidden="true">
+      <svg class="steam" viewBox="0 0 70 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 80 Q12 60, 22 42 Q30 25, 20 5"/>
+        <path d="M35 80 Q29 60, 39 42 Q47 25, 37 5"/>
+        <path d="M52 80 Q46 60, 56 42 Q64 25, 54 5"/>
+      </svg>
+      <svg class="mug-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="183" rx="62" ry="6" fill="var(--brown)" opacity="0.15"/>
+        <path d="M50 82 L50 160 Q50 178, 68 178 L132 178 Q150 178, 150 160 L150 82 Z"
+              fill="var(--card)" stroke="var(--brown)" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M150 102 Q180 102, 180 130 Q180 158, 150 158"
+              fill="none" stroke="var(--brown)" stroke-width="3.5" stroke-linecap="round"/>
+        <ellipse cx="100" cy="82" rx="50" ry="8" fill="var(--brown)"/>
+        <ellipse cx="100" cy="80" rx="50" ry="8" fill="none" stroke="var(--brown)" stroke-width="3.5"/>
+        <ellipse cx="100" cy="80" rx="42" ry="4" fill="var(--accent-glow)" opacity="0.35"/>
+        <path class="heart-path"
+              d="M88 130 Q82 122, 86 116 Q92 112, 100 120 Q108 112, 114 116 Q118 122, 112 130 Q104 140, 100 144 Q96 140, 88 130 Z"
+              fill="var(--accent)"/>
+      </svg>
+    </div>
+
+    <p class="tagline">
+      <span class="en">"Currently brewing my career, one cup of code at a time."</span>
+      <span class="ar">«أُحضِّرُ مسيرتي المهنيّة، كوبًا من الشيفرة في كلّ مرّة.»</span>
+    </p>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about">
+    <h2 class="section-title">
+      <span class="en">A Little About Me</span>
+      <span class="ar">نبذةٌ عنّي</span>
+    </h2>
+    <p class="section-sub">
+      <span class="en">— the warm seat at the corner —</span>
+      <span class="ar">— الزاوية الدافئة —</span>
+    </p>
+    <p>
+      <span class="en">I'm a 23-year-old Computer Science student at the University of Jordan. I love quiet mornings, hot chocolate, soft slices of cheesecake, and the slow joy of learning something new every day. I'm just at the beginning of my path — and that, to me, is the sweetest part.</span>
+      <span class="ar">طالبةُ علوم حاسوب في الجامعة الأردنيّة، عمري ٢٣ عامًا. أُحبُّ الصباحات الهادئة، والشوكولاتة الساخنة، وقِطَع التشيز كيك اللذيذة، وفرحةَ تعلُّمِ شيءٍ جديد كلَّ يوم. أنا في بدايةِ طريقي — وهذا أحلى ما فيه.</span>
+    </p>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="skills">
+    <h2 class="section-title">
+      <span class="en">The Menu</span>
+      <span class="ar">القائمة</span>
+    </h2>
+    <p class="section-sub">
+      <span class="en">— served warm —</span>
+      <span class="ar">— تُقدَّم دافئة —</span>
+    </p>
+
+    <div class="menu-group">
+      <h3>
+        <span class="en">From the Kitchen</span>
+        <span class="ar">من المطبخ</span>
+      </h3>
+      <p class="sub">
+        <span class="en">Technical skills</span>
+        <span class="ar">المهارات التقنية</span>
+      </p>
+      <div class="plates">
+        <div class="plate">HTML</div>
+        <div class="plate">CSS</div>
+        <div class="plate">JavaScript</div>
+        <div class="plate">Python</div>
+        <div class="plate">C++</div>
+        <div class="plate">Java</div>
+        <div class="plate">Git</div>
+        <div class="plate">SQL</div>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <h3>
+        <span class="en">From the Heart</span>
+        <span class="ar">من القلب</span>
+      </h3>
+      <p class="sub">
+        <span class="en">Soft skills</span>
+        <span class="ar">المهارات الشخصيّة</span>
+      </p>
+      <div class="plates teacups">
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Warm Presence</span>
+            <span class="ar">حضورٌ دافئ</span>
+          </span>
+          <span class="desc">
+            <span class="en">Brings a kind, welcoming energy to every room.</span>
+            <span class="ar">تُضفي طاقةً لطيفةً ومُرحِّبة على كلّ مكان.</span>
+          </span>
+        </div>
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Always Helpful</span>
+            <span class="ar">دائمًا في العون</span>
+          </span>
+          <span class="desc">
+            <span class="en">First to lend a hand — quietly, without being asked.</span>
+            <span class="ar">أوّلُ من تمدُّ يدَ العون، بهدوءٍ ودون أن يُطلَب.</span>
+          </span>
+        </div>
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Calm Under Pressure</span>
+            <span class="ar">هدوءٌ تحت الضغط</span>
+          </span>
+          <span class="desc">
+            <span class="en">Keeps a steady mind when things get noisy.</span>
+            <span class="ar">تحافظ على صفاء ذهنها وقت ازدحام الأمور.</span>
+          </span>
+        </div>
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Energetic & Disciplined</span>
+            <span class="ar">نشاطٌ والتزام</span>
+          </span>
+          <span class="desc">
+            <span class="en">Carries a sporty, active spirit into her work and her days.</span>
+            <span class="ar">تحملُ روحًا رياضيّةً نشيطة في عملها ويومها.</span>
+          </span>
+        </div>
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Easy to Fit Anywhere</span>
+            <span class="ar">سهلةُ التكيُّف</span>
+          </span>
+          <span class="desc">
+            <span class="en">Settles into any team like she's been part of it forever.</span>
+            <span class="ar">تنسجمُ مع أيّ فريق وكأنّها جزءٌ منه منذ زمن.</span>
+          </span>
+        </div>
+        <div class="teacup">
+          <span class="title">
+            <span class="en">Team-Hearted</span>
+            <span class="ar">روحُ الفريق</span>
+          </span>
+          <span class="desc">
+            <span class="en">Genuinely loves working with others — and it shows.</span>
+            <span class="ar">تُحبُّ العملَ ضمن فريقٍ من قلبها، ويظهرُ ذلك في تعاملها.</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects">
+    <h2 class="section-title">
+      <span class="en">What I'm Brewing</span>
+      <span class="ar">ما أُحضِّره</span>
+    </h2>
+    <p class="section-sub">
+      <span class="en">— currently in the works —</span>
+      <span class="ar">— قيد العمل حاليًا —</span>
+    </p>
+
+    <div class="desserts">
+      <div class="dessert-card">
+        <span class="emoji">🛍️</span>
+        <div class="name">
+          <span class="en">Market Website</span>
+          <span class="ar">موقع تسوّق إلكتروني</span>
+        </div>
+        <div class="status">
+          <span class="en">In progress ☕</span>
+          <span class="ar">قيد العمل ☕</span>
+        </div>
+      </div>
+      <div class="dessert-card">
+        <span class="emoji">🏥</span>
+        <div class="name">
+          <span class="en">Hospital System</span>
+          <span class="ar">نظام إدارة مستشفى</span>
+        </div>
+        <div class="status">
+          <span class="en">In progress ☕</span>
+          <span class="ar">قيد العمل ☕</span>
+        </div>
+      </div>
+      <div class="dessert-card">
+        <span class="emoji">📊</span>
+        <div class="name">
+          <span class="en">Reports Platform</span>
+          <span class="ar">منصّة التقارير</span>
+        </div>
+        <div class="status">
+          <span class="en">In progress ☕</span>
+          <span class="ar">قيد العمل ☕</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section class="education">
+    <h2 class="section-title">
+      <span class="en">Where I'm Learning</span>
+      <span class="ar">حيثُ أتعلَّم</span>
+    </h2>
+    <p class="section-sub">
+      <span class="en">— the classroom by the window —</span>
+      <span class="ar">— القاعةُ المُطِلَّةُ على النافذة —</span>
+    </p>
+    <div class="edu-card">
+      <h3>
+        <span class="en">University of Jordan</span>
+        <span class="ar">الجامعةُ الأردنيّة</span>
+      </h3>
+      <p>
+        <span class="en">B.Sc. Computer Science Engineering</span>
+        <span class="ar">بكالوريوس هندسة علوم الحاسوب</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact">
+    <h2 class="section-title">
+      <span class="en">Leave a Note</span>
+      <span class="ar">اترك ملاحظة</span>
+    </h2>
+    <p class="section-sub">
+      <span class="en">— the little card on the table —</span>
+      <span class="ar">— البطاقةُ الصغيرةُ على الطاولة —</span>
+    </p>
+    <div class="note-card">
+      <p>
+        <span class="en">Reach me anytime — I'd love a chat over hot chocolate ☕</span>
+        <span class="ar">تواصلوا معي في أيّ وقت — يسعدني الحديثُ على فنجان شوكولاتة ساخنة ☕</span>
+      </p>
+      <a class="note-email" href="mailto:sewar@gmail.com">
+        <span class="note-email-icon">✉</span>
+        <span>sewar@gmail.com</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>
+      <span class="en">Made with <span class="heart">💛</span> and hot chocolate by <em>Nour</em>, for <em>Sewar</em>.</span>
+      <span class="ar">صُنِعَت بـ <span class="heart">💛</span> وهوط شوكلط من <em>نور</em>، لـ <em>سوار</em>.</span>
+    </p>
+  </footer>
+
+  <!-- ===== Cat companion (Mocha) ===== -->
+  <div class="cat-companion" id="cat" role="button" tabindex="0" aria-label="A little cat companion — click for meows">
+    <div class="cat-bubble" id="catBubble"></div>
+    <span class="cat-zzz" aria-hidden="true">💤</span>
+    <svg class="cat-svg" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Tail -->
+      <g class="cat-tail">
+        <path d="M78 88 Q92 78, 88 60 Q85 50, 92 44"
+              fill="none" stroke="#C8842A" stroke-width="6.5" stroke-linecap="round"/>
+        <path d="M86 50 Q89 47, 92 44"
+              fill="none" stroke="#FFD580" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      </g>
+      <!-- Body -->
+      <ellipse cx="50" cy="82" rx="28" ry="22" fill="#E8A33D"/>
+      <ellipse cx="50" cy="86" rx="20" ry="13" fill="#FFD580" opacity="0.55"/>
+      <!-- Front paws -->
+      <ellipse cx="38" cy="102" rx="7" ry="5" fill="#E8A33D"/>
+      <ellipse cx="62" cy="102" rx="7" ry="5" fill="#E8A33D"/>
+      <ellipse cx="38" cy="103" rx="4" ry="2.5" fill="#FFD580" opacity="0.7"/>
+      <ellipse cx="62" cy="103" rx="4" ry="2.5" fill="#FFD580" opacity="0.7"/>
+      <!-- Head group -->
+      <g class="cat-head">
+        <!-- Ears -->
+        <g class="cat-ear-left">
+          <path d="M28 38 L26 18 L44 32 Z" fill="#E8A33D"/>
+          <path d="M30 35 L29 23 L40 31 Z" fill="#F4C9C0"/>
+        </g>
+        <g class="cat-ear-right">
+          <path d="M72 38 L74 18 L56 32 Z" fill="#E8A33D"/>
+          <path d="M70 35 L71 23 L60 31 Z" fill="#F4C9C0"/>
+        </g>
+        <!-- Face -->
+        <circle cx="50" cy="50" r="22" fill="#F5C24A"/>
+        <ellipse cx="50" cy="58" rx="14" ry="9" fill="#FFE9B8" opacity="0.6"/>
+        <!-- Cheeks -->
+        <circle cx="33" cy="55" r="3" fill="#F4C9C0" opacity="0.75"/>
+        <circle cx="67" cy="55" r="3" fill="#F4C9C0" opacity="0.75"/>
+        <!-- Eyes -->
+        <g class="cat-eyes">
+          <ellipse cx="42" cy="48" rx="3.5" ry="4.5" fill="#FFFFFF"/>
+          <ellipse cx="58" cy="48" rx="3.5" ry="4.5" fill="#FFFFFF"/>
+          <ellipse cx="42" cy="48" rx="2" ry="3" fill="#3D2817"/>
+          <ellipse cx="58" cy="48" rx="2" ry="3" fill="#3D2817"/>
+          <circle cx="42.8" cy="46.5" r="0.8" fill="#FFFFFF"/>
+          <circle cx="58.8" cy="46.5" r="0.8" fill="#FFFFFF"/>
+        </g>
+        <!-- Nose -->
+        <path d="M48 56 L52 56 L50 59 Z" fill="#F4A4AA"/>
+        <!-- Mouth -->
+        <path d="M50 59 Q47 62 44 60" fill="none" stroke="#3D2817" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M50 59 Q53 62 56 60" fill="none" stroke="#3D2817" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Whiskers -->
+        <line x1="26" y1="54" x2="38" y2="55" stroke="#3D2817" stroke-width="0.7" stroke-linecap="round" opacity="0.7"/>
+        <line x1="26" y1="58" x2="38" y2="58" stroke="#3D2817" stroke-width="0.7" stroke-linecap="round" opacity="0.7"/>
+        <line x1="74" y1="54" x2="62" y2="55" stroke="#3D2817" stroke-width="0.7" stroke-linecap="round" opacity="0.7"/>
+        <line x1="74" y1="58" x2="62" y2="58" stroke="#3D2817" stroke-width="0.7" stroke-linecap="round" opacity="0.7"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Scripts (load order matters: audio → toggles → scroll → cat → effects) -->
+  <script src="js/audio.js"></script>
+  <script src="js/toggles.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/cat.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+</html>
